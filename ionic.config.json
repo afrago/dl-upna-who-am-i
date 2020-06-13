@@ -1,0 +1,7 @@
+{
+  "name": "dl-upna-who-am-i",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

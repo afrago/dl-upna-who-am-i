@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      UPNA: Deep Learning
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Who am I?</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Ready to know who do you look like?</ion-card-subtitle>
+        <ion-card-title>Who am I?</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-buttons slot="start" *ngIf="isTrained">
+          <ion-button (click)="takePicture()">
+            <ion-icon slot="camera" name="train"></ion-icon>
+            Check photo
+          </ion-button>
+          <ion-button (click)="test()">
+            <ion-icon slot="" name=""></ion-icon>
+            Test model
+          </ion-button>
+        </ion-buttons>
+        <img [src]="photo" crossOrigin="anonymous">
+        <div *ngIf="isTest">
+          <h5>Testing results</h5>
+          <ion-list *ngFor="let item of traningMetrics">            
+            <ion-item>
+              Final accuracy: {{item.acc}}
+            </ion-item>
+            <ion-item>
+              Cross entropy:  {{item.ce}}
+            </ion-item>
+            <ion-item>
+              Loss: {{item.loss}}
+            </ion-item>
+            <hr />
+          </ion-list>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
